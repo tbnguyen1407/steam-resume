@@ -1,0 +1,66 @@
+﻿<Application x:Class="SteamResume.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d1p1:Ignorable="d"
+             StartupUri="MainWindow.xaml">
+    
+    <Application.Resources>
+        <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:SteamResume.ViewModels" />
+
+        <BooleanToVisibilityConverter x:Key="cnvVisibility" />
+
+        <FontFamily x:Key="mainFont">Consolas</FontFamily>
+
+        <Style x:Key="textBlockStyle" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="{StaticResource mainFont}" />
+        </Style>
+
+        <Style x:Key="groupHeaderTextBlockStyle" TargetType="TextBlock" BasedOn="{StaticResource textBlockStyle}">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+        </Style>
+        <Style x:Key="groupItemCountTextBlockStyle" TargetType="TextBlock" BasedOn="{StaticResource textBlockStyle}">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Text" Value="{Binding ItemCount, StringFormat=[{0}]}" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+        </Style>
+        <Style x:Key="entry1stTextBlockStyle" TargetType="TextBlock" BasedOn="{StaticResource textBlockStyle}">
+            <Setter Property="Foreground" Value="Gray" />
+        </Style>
+        <Style x:Key="entry2ndTextBlockStyle" TargetType="TextBlock" BasedOn="{StaticResource textBlockStyle}">
+            <Setter Property="FontFamily" Value="{StaticResource mainFont}" />
+            <Setter Property="Foreground" Value="DarkBlue" />
+        </Style>
+        <Style x:Key="entry3rdTextBlockStyle" TargetType="TextBlock" BasedOn="{StaticResource textBlockStyle}">
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        
+        <Style x:Key="searchTextBoxStyle" TargetType="xctk:WatermarkTextBox">
+            <Setter Property="BorderThickness" Value="0 0 0 0.5" />
+            <Setter Property="FontFamily" Value="{StaticResource mainFont}" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Height" Value="26" />
+            <Setter Property="Padding" Value="4,0" />
+            <Setter Property="SelectAllOnGotFocus" Value="True" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Watermark" Value="Search for games" />
+        </Style>
+
+        <Style x:Key="listBoxStyle" TargetType="ItemsControl">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="FontFamily" Value="{StaticResource mainFont}" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+
+        <Style x:Key="groupHeaderSeparatorStyle" TargetType="Separator">
+            <Setter Property="Margin" Value="0 0 0 15" />
+        </Style>
+    </Application.Resources>
+</Application>

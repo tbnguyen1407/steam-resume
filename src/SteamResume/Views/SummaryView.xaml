@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="SteamResume.Views.SummaryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SteamResume.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="100">
+
+    <StackPanel>
+        <TextBlock Style="{StaticResource textBlockStyle}" Margin="2">
+            <TextBlock.Text>
+                <MultiBinding StringFormat="{}{0} completed entries ({1} games + {2} demos)">
+                    <Binding Path="CompletedCount" />
+                    <Binding Path="CompletedGameCount" />
+                    <Binding Path="CompletedDemoCount" />
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+        <Separator />
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Margin="2 0">
+                <Hyperlink Command="{Binding CmdRefresh}">
+                    <TextBlock Text="[Refresh]" />
+                </Hyperlink>
+            </TextBlock>
+
+            <TextBlock Margin="2 0">
+                <Hyperlink Command="{Binding CmdSort}">
+                    <TextBlock Text="{Binding GroupCriteria, StringFormat=[Group by {0}]}" />
+                </Hyperlink>
+            </TextBlock>
+        </StackPanel>
+
+        <TextBlock Style="{StaticResource textBlockStyle}" Margin="2" Visibility="{Binding IsUpdating, Converter={StaticResource cnvVisibility}}">
+            <TextBlock.Text>
+                <MultiBinding StringFormat="(updating {0}/{1} games)">
+                    <Binding Path="Counter1" />
+                    <Binding Path="GameCount" />
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+    </StackPanel>
+</UserControl>
