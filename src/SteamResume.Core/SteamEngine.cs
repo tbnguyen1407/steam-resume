@@ -192,6 +192,7 @@ namespace SteamResume.Core
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
                 if (!string.IsNullOrEmpty(stringResult))
                     File.WriteAllText($"db/{appid}.log", stringResult);
                 return null;
