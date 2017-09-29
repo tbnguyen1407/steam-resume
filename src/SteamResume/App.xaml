@@ -45,7 +45,7 @@
             <Setter Property="Margin" Value="5" />
             <Setter Property="Height" Value="26" />
             <Setter Property="Padding" Value="4,0" />
-            <Setter Property="SelectAllOnGotFocus" Value="True" />
+            <Setter Property="AutoSelectBehavior" Value="OnFocus" />
             <Setter Property="HorizontalContentAlignment" Value="Center" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="Watermark" Value="Search for games" />
