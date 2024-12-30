@@ -19,7 +19,7 @@ namespace SteamResume.ViewModels
     {
         #region fields & constants
 
-        private string apikey = "634272AA2FBE9BC5060D3B71EBEC1624";
+        private string apikey = Settings.Default.apikey;
         private DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
         private IPlayerRepository playerRepository;
         private HttpClient httpClient = new HttpClient();

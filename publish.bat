@@ -1,7 +1,8 @@
 @ECHO OFF
 SETLOCAL
 
-FOR %%a in ("%~f0\..") DO SET prjName=%%~nxa
+::FOR %%a in ("%~f0\..") DO SET prjName=%%~nxa
+prjName="SteamResume"
 SET dirCompile=%~dp0\out\compile\%prjName%
 SET dirPublish=%~dp0\out\publish\%prjName%
 SET exclude=*.dll *.pdb *.vshost *.xml

@@ -1,0 +1,44 @@
+@baseUrl = http://api.steampowered.com
+@apiKey = 634272AA2FBE9BC5060D3B71EBEC1624
+@userVanityUrl = bentran1407
+
+###
+
+// @name GetSteamID
+GET {{baseUrl}}/ISteamUser/ResolveVanityUrl/v0001/
+  ?key={{apiKey}}
+  &vanityurl={{userVanityUrl}}
+
+###
+
+@steamID={{GetSteamID.response.body.response.steamid}}
+
+###
+
+GET {{baseUrl}}/ISteamUser/GetPlayerSummaries/v0002/
+  ?key={{apiKey}}
+  &steamids={{steamID}}
+
+###
+
+GET {{baseUrl}}/IPlayerService/GetSteamLevel/v0001/
+  ?key={{apiKey}}
+  &steamid={{steamID}}
+
+###
+
+GET {{baseUrl}}/IPlayerService/GetOwnedGames/v0001/
+  ?key={{apiKey}}
+  &steamid={{steamID}}
+  &include_appinfo=1
+  &include_played_free_games=1
+
+###
+
+@appID = 235540
+GET {{baseUrl}}/ISteamUserStats/GetPlayerAchievements/v0001/
+  ?key={{apiKey}}
+  &steamid={{steamID}}
+  &appid={{appID}}
+
+###

@@ -7,7 +7,7 @@ FOR /f "usebackq tokens=1* delims=: " %%i IN (`"%vsInstallerRoot%\vswhere.exe" -
   IF /i "%%i"=="installationPath" SET vsRoot=%%j
 )
 
-SET MSBuild="%vsRoot%\MSBuild\15.0\Bin\MSBuild.exe"
+SET MSBuild="%vsRoot%\MSBuild\Current\Bin\MSBuild.exe"
 
 :: msbuild params
 SET MSBuildParam=
